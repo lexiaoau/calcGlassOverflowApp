@@ -26,6 +26,16 @@ class Glass:
             self.filled = self.capacity
             # self.isFull = True
 
+    def overflowToChildren(self):
+        if( self.leftChild is None or self.rightChild is None  ):
+            print("Error: either child is none")
+        elif ( self.overflowed <= 0 ):
+            print("Error: not overflowed")
+        else:
+            self.leftChild.fillLiquid( self.overflowed / 2 )
+            self.rightChild.fillLiquid( self.overflowed / 2 )
+
+
 
 
 
