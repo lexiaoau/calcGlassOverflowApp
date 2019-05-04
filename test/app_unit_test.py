@@ -7,7 +7,6 @@ from App import App
 import Constants
 
 
-
 class TestAppClass(unittest.TestCase):
 
     app = None
@@ -16,7 +15,6 @@ class TestAppClass(unittest.TestCase):
     def setUpClass(cls):
         cls.app = App()
 
-    # @patch('__main__.input')
     def test_app_getUserInput(self):        
 
         mockInputStr = '   3 4 5    ' 
@@ -41,7 +39,15 @@ class TestAppClass(unittest.TestCase):
         result = self.app.isUserValidParams()
         self.assertEqual(False, result)
 
+    def test_app_buildGlassTree(self): 
+        rowNum = 5
+        self.app.inputRow = rowNum
+        self.app.buildGlassTree()
 
+        self.assertEqual((rowNum+1)*(rowNum+2)/2 , len(self.app.glassTreeDict))
+
+        self.assertEqual( (self.app.glassTreeDict[(4,1)]).leftChild , self.app.glassTreeDict[(5,1)] )
+        self.assertEqual( (self.app.glassTreeDict[(4,1)]).rightChild , self.app.glassTreeDict[(5,2)] )
 
 
 

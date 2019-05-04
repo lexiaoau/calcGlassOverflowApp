@@ -63,3 +63,27 @@ class App:
 
 		return True
 
+	def buildGlassTree(self):
+		for rowIndex in reversed(range(self.inputRow+1)):
+			for columnIndex in range(rowIndex+1):
+				leftChild = None
+				rightChild = None
+
+				if( (rowIndex+1, columnIndex) in self.glassTreeDict ):
+					leftChild = self.glassTreeDict[(rowIndex+1, columnIndex)]
+				if( (rowIndex+1, columnIndex+1) in self.glassTreeDict ):
+					rightChild = self.glassTreeDict[(rowIndex+1, columnIndex+1)]
+
+				theGlass = Glass(leftChild,rightChild)
+				self.glassTreeDict[(rowIndex, columnIndex)] = theGlass
+
+
+
+
+
+
+
+
+
+
+
