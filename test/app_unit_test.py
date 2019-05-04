@@ -1,21 +1,28 @@
+from unittest.mock import patch
 import unittest
+
+
 from Glass import Glass
 from App import App
 import Constants
 
+
+
 class TestAppClass(unittest.TestCase):
 
-	def test_app_getUserInput(self):
-		app = App()
+    app = None
 
-		row = 3
-		col = 4
-		cap = 5
+    @classmethod
+    def setUpClass(cls):
+        cls.app = App()
 
-		app.getUserInput(row, col, cap)
+    @patch('__main__.input')
+    def test_app_getUserInput(self, mock_input):        
 
-		self.assertEqual(row, app.inputRow)
-		self.assertEqual(col, app.inputCol)
-		self.assertEqual(cap*1000, app.inputCapacity)
+        mockInputStr = '   3 4 5    ' 
 
-		
+        with patch('builtins.input', return_value=mockInputStr):
+            self.app.getUserInput()
+            self.assertEqual(mockInputStr, self.app.inputStr)  
+
+  
