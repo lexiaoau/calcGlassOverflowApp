@@ -11,7 +11,7 @@ class Glass:
       self.capacity = Constants.GLASS_CAP
       self.filled = 0.0
       self.overflowed = 0.0
-      # self.isFull = False
+      self.isFull = False
 
       # self.outMost = False
 
@@ -19,16 +19,20 @@ class Glass:
       #   self.outMost = True
 
 
+    # fill glass with amount liquid
+    # if overfilled, set overflow amount and set this as full
     def fillLiquid(self, amount):
         self.filled = self.filled + amount
         if( self.filled > self.capacity ):
-            self.overflowed = self.filled - self.capacity
+            self.overflowed = self.overflowed + (self.filled - self.capacity)
             self.filled = self.capacity
-            # self.isFull = True
+            self.isFull = True
 
+    # send overflow evenly to both child
     def overflowToChildren(self):
         if( self.leftChild is None or self.rightChild is None  ):
-            print("Error: either child is none")
+            # print("Error: either child is none")
+            return
         elif ( self.overflowed <= 0 ):
             print("Error: not overflowed")
         else:
