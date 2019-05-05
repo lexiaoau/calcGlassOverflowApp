@@ -111,14 +111,23 @@ class App:
 					theGlass.overflowToChildren()
 					hasGlassOverflow = True
 
+	def runApp(self):
+		isExit = False
+		while(not isExit):
+			self.getUserInput()
+			if( self.isUserInputExit() ):
+				isExit = True
+			else:
+				if( self.isUserValidParams() ):
+					self.buildGlassTree()
+					self.fillGlassTree()
+					theGlass = self.glassTreeDict[(self.inputRow, self.inputCol)]
+					print("<<< The {}th glass of row {} is filled with {}ml.".format(self.inputCol, self.inputRow, theGlass.filled))
+				else:
+					print("Input invalid. Please check and input again.")
 
-
-
-
-
-
-
-
-
+if __name__== "__main__":
+	app = App()
+	app.runApp()
 
 
