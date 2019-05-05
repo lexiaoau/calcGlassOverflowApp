@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import Constants
 
 def convertStrToInteger(aStr):

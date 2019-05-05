@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import unittest
 from Glass import Glass
 import Constants
@@ -19,6 +20,8 @@ class TestGlassClass(unittest.TestCase):
 		self.assertEqual(test_overflow, aGlass.overflowed)
 
 	def test_glass_overflowToChildren(self):
+
+		# test child get correct overflow amount from parent
 		leftChildGlass = Glass(None, None)
 		rightChildGlass = Glass(None, None)
 
