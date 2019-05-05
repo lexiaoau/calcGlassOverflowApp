@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 from unittest.mock import patch
 import unittest
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../app")
 
 from Glass import Glass
 from App import App
