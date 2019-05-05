@@ -45,6 +45,19 @@ Ran 7 tests in 0.010s
 OK
 
 ```
+### Run production code
+
+```
+python3 <code install path>/app/App.py
+```
+Expected result should be as following:
+
+```
+To calculate j’th glass of the i’th row when K litres are poured into the top most glass, please enter "i j K" in below line(seperated with white space.)
+Or you can enter "exit" to exit this program.
+>>> 4 0 5
+<<< The 0th glass of row 4 is filled with 78.125ml.
+```
 
 ### Notes
 
