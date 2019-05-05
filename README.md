@@ -25,17 +25,24 @@ pip install nose
 
 ## Installation
 
-```
-
-
-```
+Download the code and install on a path.
 
 ## Run
 
-
+### Run unit test
 
 ```
+nosetests <code install path>
+```
 
+Expected result should be as following:
+
+```
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.010s
+
+OK
 
 ```
 
